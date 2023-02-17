@@ -23,12 +23,6 @@ public enum Rank {
 		this.winningAmount = winningAmount;
 	}
 
-	public static List<Rank> getRanks() {
-		return Arrays.stream(Rank.values())
-			.filter(rank -> rank != Rank.UNRANKED)
-			.collect(Collectors.toUnmodifiableList());
-	}
-
 	public static Rank findRank(int correctNumber, boolean bonus) {
 		for (Rank rank : Rank.values()) {
 			if (rank.correctNumber == correctNumber && rank.bonus == bonus) {
@@ -38,16 +32,7 @@ public enum Rank {
 		return UNRANKED;
 	}
 
-	public int getCorrectNumber() {
-		return correctNumber;
-	}
-
-	public boolean isBonus() {
-		return bonus;
-	}
-
 	public int getWinningAmount() {
 		return winningAmount;
 	}
-
 }
